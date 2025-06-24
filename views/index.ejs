@@ -1,0 +1,17 @@
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <% messages.map((message)=> { %>
+        <li>
+            <%= message.text %>
+        </li>
+        <% }) %>
+</body>
+
+</html>
