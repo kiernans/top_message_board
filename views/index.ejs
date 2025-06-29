@@ -7,19 +7,20 @@
 </head>
 
 <body>
-    <%- include('navbar', {link: {href: "/new" , text: "New Message" }}) %>
-        <% if (messages) { %>
-            <% messages.map((message)=> { %>
-                <li>
-                    <%= message.user %>
-                </li>
-                <li>
-                    <%= message.text %>
-                </li>
-                <li>
-                    <%= message.added %>
-                </li>
-                <% })} %>
+    <%- include('navbar', {link: {href: "/new" , text: "Create New Message" }}) %>
+        <h3>Messages</h3>
+        <nav>
+            <% if (messages) { %>
+                <% messages.map((message)=> { %>
+                    <li>
+                        <a href="/messages/<%= message.id %>">
+                            <span>
+                                <%= message.user %>
+                            </span>
+                        </a>
+                    </li>
+                    <% })} %>
+        </nav>
 </body>
 
 </html>
