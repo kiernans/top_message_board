@@ -7,18 +7,19 @@
 </head>
 
 <body>
-    <% if (messages) { %>
-        <% messages.map((message)=> { %>
-            <li>
-                <%= message.user %>
-            </li>
-            <li>
-                <%= message.text %>
-            </li>
-            <li>
-                <%= message.added %>
-            </li>
-            <% })} %>
+    <%- include('navbar', {link: {href: "/new" , text: "New Message" }}) %>
+        <% if (messages) { %>
+            <% messages.map((message)=> { %>
+                <li>
+                    <%= message.user %>
+                </li>
+                <li>
+                    <%= message.text %>
+                </li>
+                <li>
+                    <%= message.added %>
+                </li>
+                <% })} %>
 </body>
 
 </html>
