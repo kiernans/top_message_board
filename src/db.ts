@@ -1,4 +1,11 @@
-const messages = [
+interface Message {
+    id: string,
+    text: string,
+    user: string,
+    added: Date
+}
+
+const messages: Array<Message> = [
     {
         id: createNewId(),
         text: "Hi there!",
@@ -21,11 +28,11 @@ async function getMessages() {
     return messages;
 };
 
-async function addMessage(user, text) {
+async function addMessage(user: string, text: string) {
     messages.push({ id: createNewId(), text: text, user: user, added: new Date() });
 }
 
-async function getMessageById(id) {
+async function getMessageById(id: string) {
     return messages.find(message => message.id === id);
 }
 

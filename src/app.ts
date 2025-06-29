@@ -5,7 +5,7 @@ const newRouter = require("./routes/newRouter");
 const messageRouter = require("./routes/messageRouter");
 
 const app = express();
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname, "../views"));
 app.set("view engine", "ejs");
 
 //Set up parsing into req.body
