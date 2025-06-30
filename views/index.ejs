@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <%- include('navbar', {link: {href: "/new" , text: "Create New Message" }}) %>
+    <%- include('partials/navbar.ejs', {link: {href: "/new" , text: "Create New Message" }}) %>
         <h3>Messages</h3>
         <nav>
             <% if (messages) { %>
