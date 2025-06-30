@@ -1,4 +1,4 @@
-const db = require("../db");
+const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 const { body, validationResult } = require("express-validator");
 
@@ -20,8 +20,8 @@ const addMessageFromForm = [
             });
         }
 
-        const { author: user, message: text } = req.body;
-        db.addMessage(user, text);
+        const { author, message } = req.body;
+        db.insertEntry(author, message);
         res.redirect("/");
     })
 ];

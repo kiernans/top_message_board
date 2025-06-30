@@ -1,11 +1,11 @@
-const db = require("../db");
+const db = require("../db/queries");
 const asyncHandler = require("express-async-handler");
 const MessageNotFoundError = require("../errors/MessageNotFoundError");
 
 const getMessageById = asyncHandler(async (req, res) => {
     const { messageId } = req.params;
 
-    const message = await db.getMessageById(messageId);
+    const message = await db.getEntryById(messageId);
 
     if (!message) {
         throw new MessageNotFoundError("Message not found");
@@ -15,7 +15,7 @@ const getMessageById = asyncHandler(async (req, res) => {
 });
 
 const getMessages = asyncHandler(async (req, res) => {
-    const messages = await db.getMessages();
+    const messages = await db.getAllEntries();
 
     if (!messages) {
         throw new MessageNotFoundError("Messages not found");
