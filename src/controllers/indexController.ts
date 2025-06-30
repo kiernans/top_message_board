@@ -2,6 +2,7 @@ const asyncHandler = require("express-async-handler");
 const db = require("../db");
 const MessageNotFoundError = require("../errors/MessageNotFoundError");
 
+
 const getMessages = asyncHandler(async (req, res) => {
     const messages = await db.getMessages();
 
@@ -13,7 +14,7 @@ const getMessages = asyncHandler(async (req, res) => {
 });
 
 const addMessageFromForm = asyncHandler(async (req, res) => {
-    const { auth_name: user, message: text } = req.body;
+    const { author: user, message: text } = req.body;
     db.addMessage(user, text);
     res.redirect("/");
 });
