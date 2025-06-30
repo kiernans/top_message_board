@@ -13,10 +13,4 @@ const getMessages = asyncHandler(async (req, res) => {
     res.render("index", { title: "Mini Message Board", messages: messages });
 });
 
-const addMessageFromForm = asyncHandler(async (req, res) => {
-    const { author: user, message: text } = req.body;
-    db.addMessage(user, text);
-    res.redirect("/");
-});
-
-module.exports = { addMessageFromForm, getMessages };
+module.exports = { getMessages };
